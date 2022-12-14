@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/lightGrayBackground"
+    android:background="@color/root_background_for_add_and_update_fragments"
     tools:context=".fragments.update.UpdateFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:hint="@string/title"
+            android:textColorHint="@color/text_color_hint_for_add_and_update_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_input"
+                android:textColor="@color/color_of_ed_in_add_and_update_fragment"
                 android:padding="4dp"
                 android:inputType="text"
                 />
@@ -58,6 +60,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:hint="@string/description"
+            android:textColorHint="@color/text_color_hint_for_add_and_update_fragment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -69,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_input"
+                android:textColor="@color/color_of_ed_in_add_and_update_fragment"
                 android:padding="20dp"
                 android:gravity="top|start"
                 android:inputType="textMultiLine" />

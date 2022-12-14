@@ -18,6 +18,9 @@
             android:title="@string/sort_by">
             <menu>
                 <item
+                    android:id="@+id/menu_priority_latest"
+                    android:title="@string/priority_latest"/>
+                <item
                     android:id="@+id/menu_priority_high"
                     android:title="@string/priority_high"/>
                 <item

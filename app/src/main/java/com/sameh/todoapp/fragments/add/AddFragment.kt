@@ -6,21 +6,23 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sameh.todoapp.R
 import com.sameh.todoapp.data.models.ToDoData
 import com.sameh.todoapp.data.viewmodel.ToDoViewModel
 import com.sameh.todoapp.databinding.FragmentAddBinding
-import com.sameh.todoapp.fragments.SharedViewModel
+import com.sameh.todoapp.data.viewmodel.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddFragment : Fragment() {
 
     private lateinit var binding: FragmentAddBinding
 
-    private lateinit var toDoViewModel: ToDoViewModel
-    private lateinit var sharedViewModel: SharedViewModel
+    private val toDoViewModel: ToDoViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,15 +35,6 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toDoViewModel = ViewModelProvider(requireActivity())[ToDoViewModel::class.java]
-        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
-
-        setMenu()
-
-        binding.spinnerAddPriorities.onItemSelectedListener = sharedViewModel.listener
-    }
-
-    private fun setMenu() {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -49,15 +42,19 @@ class AddFragment : Fragment() {
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
+                when (menuItem.itemId) {
                     R.id.menu_add -> {
                         insertDataToDatabase()
-                        true
                     }
-                    else -> false
+                    android.R.id.home -> {
+                        findNavController().navigate(R.id.action_addFragment_to_listFragment)
+                    }
                 }
+                return true
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        binding.spinnerAddPriorities.onItemSelectedListener = sharedViewModel.listener
     }
 
     private fun insertDataToDatabase() {
@@ -75,10 +72,10 @@ class AddFragment : Fragment() {
             )
 
             toDoViewModel.insertData(newToDoData)
-            Toast.makeText(requireContext(), "Added Successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.added_successfully), Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), getString(R.string.please_fill_out_all_fields), Toast.LENGTH_SHORT)
                 .show()
         }
     }

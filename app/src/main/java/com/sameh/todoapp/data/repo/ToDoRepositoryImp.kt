@@ -5,8 +5,9 @@ import com.sameh.todoapp.data.database.ToDoDao
 import com.sameh.todoapp.data.models.ToDoData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class ToDoRepositoryImp(private val toDoDao: ToDoDao) : ToDoRepository {
+class ToDoRepositoryImp @Inject constructor(private val toDoDao: ToDoDao) : ToDoRepository {
 
     override val getAllData: LiveData<List<ToDoData>>
         get() = toDoDao.getAllData()

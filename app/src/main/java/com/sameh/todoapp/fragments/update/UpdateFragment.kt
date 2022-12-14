@@ -7,24 +7,26 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sameh.todoapp.R
 import com.sameh.todoapp.data.models.ToDoData
 import com.sameh.todoapp.data.viewmodel.ToDoViewModel
 import com.sameh.todoapp.databinding.FragmentUpdateBinding
-import com.sameh.todoapp.fragments.SharedViewModel
+import com.sameh.todoapp.data.viewmodel.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UpdateFragment : Fragment() {
 
     private lateinit var binding: FragmentUpdateBinding
 
     private val args by navArgs<UpdateFragmentArgs>()
 
-    private lateinit var toDoViewModel: ToDoViewModel
-    private lateinit var sharedViewModel: SharedViewModel
+    private val toDoViewModel: ToDoViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +39,32 @@ class UpdateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toDoViewModel = ViewModelProvider(requireActivity())[ToDoViewModel::class.java]
-        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.update_fragment_menu, menu)
+            }
 
-        setMenu()
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.menu_save -> {
+                        updateCurrentData()
+                    }
+                    R.id.menu_delete -> {
+                        confirmRemoveData()
+                    }
+                    android.R.id.home -> {
+                        findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+                    }
+                }
+                return true
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        setCurrentDataToUpdateFragment()
+        getDataFromListFragmentToUpdateIt()
     }
 
-    private fun setCurrentDataToUpdateFragment() {
+    private fun getDataFromListFragmentToUpdateIt() {
         try {
             binding.edAddTitle.setText(args.currentItem.title)
             binding.edAddDescription.setText(args.currentItem.description)
@@ -54,29 +73,6 @@ class UpdateFragment : Fragment() {
         } catch (e: Exception) {
             Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun setMenu() {
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.update_fragment_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
-                    R.id.menu_save -> {
-                        updateCurrentData()
-                        true
-                    }
-                    R.id.menu_delete -> {
-                        confirmRemoveData()
-                        true
-                    }
-                    else -> false
-                }
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     private fun updateCurrentData() {
@@ -94,26 +90,26 @@ class UpdateFragment : Fragment() {
             )
 
             toDoViewModel.updateData(newItem)
-            Toast.makeText(requireContext(), "Data updated successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "'${newItem.title}' ${getString(R.string.updated_successfully)}", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), getString(R.string.please_fill_out_all_fields), Toast.LENGTH_SHORT)
                 .show()
         }
     }
 
     private fun confirmRemoveData() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Remove '${args.currentItem.title}'!")
-        builder.setMessage("Are you sure to remove '${args.currentItem.title}'?")
+        builder.setTitle("${getString(R.string.remove)} '${args.currentItem.title}'!")
+        builder.setMessage("${getString(R.string.are_you_sure_to_remove)} '${args.currentItem.title}'?")
 
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
             toDoViewModel.deleteData(args.currentItem)
-            Toast.makeText(requireContext(), "'${args.currentItem.title}' removed!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "'${args.currentItem.title}' ${getString(R.string.removed)}", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }
 
-        builder.setNegativeButton("No") { _, _ -> }
+        builder.setNegativeButton(getString(R.string.no)) { _, _ -> }
         builder.show()
     }
 }

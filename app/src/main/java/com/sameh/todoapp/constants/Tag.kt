@@ -1,4 +1,4 @@
-package com.sameh.todoapp
+package com.sameh.todoapp.constants
 
 class Tag {
     companion object {

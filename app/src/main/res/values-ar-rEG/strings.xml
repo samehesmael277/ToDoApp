@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيق المهام</string>
+    <string name="float_description">زرار الاضافة</string>
+    <string name="no_data_image">لا توجد بيانات</string>
+    <string name="to_do_list">قائمة المهام</string>
+    <string name="add_todo">اضافة مهمة</string>
+    <string name="update_todo">تحديث مهمة</string>
+    <string name="title">العنوان</string>
+    <string name="description">الوصف</string>
+    <string name="search">بحث</string>
+    <string name="search_hint">بحث…</string>
+    <string name="sort_by">فرز بواسطة</string>
+    <string name="priority_latest">الأحدث</string>
+    <string name="priority_high">الأولوية العالية</string>
+    <string name="priority_low">الأولوية المنخفضة</string>
+    <string name="delete_all">حذف كل شيئ</string>
+    <string name="add">اضافة</string>
+    <string name="save">حفظ</string>
+    <string name="delete">حذف</string>
+    <string name="no_data">لا توجد بيانات!</string>
+
+    <string name="remove_everything">حذف كل شيئ!</string>
+    <string name="are_you_sure_to_remove_everything">هل أنت متأكد من حذف كل شيء؟</string>
+    <string name="yes">نعم</string>
+    <string name="everything_removed_successfully">تم حذف كل شيء بنجاح!</string>
+    <string name="no">لا</string>
+    <string name="deleted">تم الحذف</string>
+    <string name="undo">إرجاع</string>
+
+    <string name="added_successfully">اضيف بنجاح</string>
+    <string name="please_fill_out_all_fields">يرجى ملء جميع الحقول!</string>
+    <string name="updated_successfully">تم التحديث بنجاح</string>
+    <string name="remove">حذف</string>
+    <string name="are_you_sure_to_remove">هل أنت متأكد من حذف</string>
+    <string name="removed">تم الحذف</string>
+
+    <string-array name="priorities">
+        <item>أولويات عالية</item>
+        <item>أولويات متوسطة</item>
+        <item>أولويات منخفضة</item>
+    </string-array>
+</resources>

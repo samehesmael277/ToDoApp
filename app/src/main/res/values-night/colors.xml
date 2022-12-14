@@ -6,31 +6,31 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
-    <color name="colorPrimary">#FF000000</color>
+    <color name="colorPrimary">#FFFFFFFF</color>
 
-    <color name="colorPrimaryForActionBar">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryForActionBar">#3a3b3c</color>
+    <color name="colorPrimaryDark">#3a3b3c</color>
     <color name="colorAccent">#448AFF</color>
 
     <!--    for list fragment-->
     <color name="white">#FFFFFFFF</color>
-    <color name="item_background">#FFFFFFFF</color>
-    <color name="root_background_for_list_fragment">#FFFFFFFF</color>
-    <color name="floating_action_button_tint">#FFFFFFFF</color>
+    <color name="item_background">#3a3b3c</color>
+    <color name="root_background_for_list_fragment">#242526</color>
+    <color name="floating_action_button_tint">#3a3b3c</color>
     <color name="floating_action_button_background_tint">#448AFF</color>
     <color name="no_data_text_color">#4B4B4B</color>
 
     <!--    for add and update fragments-->
-    <color name="color_of_ed_in_add_and_update_fragment">#FF000000</color>
+    <color name="color_of_ed_in_add_and_update_fragment">#FFFFFF</color>
     <color name="text_color_hint_for_add_and_update_fragment">#787878</color>
-    <color name="background_stroke_color_of_ed_in_fragment">#FFFFFFFF</color>
-    <color name="background_stroke_color_of_ed_in_fragment_on_state_focused">#E6E6E6</color>
-    <color name="root_background_for_add_and_update_fragments">#F4F3F3</color>
+    <color name="background_stroke_color_of_ed_in_fragment">#1B1B1B</color>
+    <color name="background_stroke_color_of_ed_in_fragment_on_state_focused">#757575</color>
+    <color name="root_background_for_add_and_update_fragments">#242526</color>
 
     <!--    for item in recyclerview-->
-    <color name="item_background_color_in_recyclerview">#FFFFFFFF</color>
-    <color name="item_stroke_color_in_recyclerview">#E6E6E6</color>
-    <color name="text_color_in_item_in_recyclerview">#4B4B4B</color>
+    <color name="item_background_color_in_recyclerview">#242526</color>
+    <color name="item_stroke_color_in_recyclerview">#757575</color>
+    <color name="text_color_in_item_in_recyclerview">#FFFFFF</color>
 
     <color name="menu_item_background">#FFFFFF</color>
 
@@ -43,5 +43,5 @@
     <color name="black">#FF000000</color>
 
 
-    <color name="background_for_splash">#FFFFFF</color>
+    <color name="background_for_splash">#FF000000</color>
 </resources>

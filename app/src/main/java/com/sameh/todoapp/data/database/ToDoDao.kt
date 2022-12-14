@@ -12,8 +12,8 @@ import com.sameh.todoapp.data.models.ToDoData
 @Dao
 interface ToDoDao {
 
-     @Query("select * from todo_table order by id asc")
-     fun getAllData(): LiveData<List<ToDoData>>
+    @Query("select * from todo_table order by id asc")
+    fun getAllData(): LiveData<List<ToDoData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertData(toDoData: ToDoData)

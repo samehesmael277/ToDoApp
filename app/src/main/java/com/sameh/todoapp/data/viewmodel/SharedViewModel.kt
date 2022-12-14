@@ -1,21 +1,23 @@
-package com.sameh.todoapp.fragments
+package com.sameh.todoapp.data.viewmodel
 
 import android.app.Application
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.sameh.todoapp.R
-import com.sameh.todoapp.Tag
+import com.sameh.todoapp.constants.Tag
 import com.sameh.todoapp.data.models.Priority
 import com.sameh.todoapp.data.models.ToDoData
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SharedViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class SharedViewModel @Inject constructor(private val context: Application) : ViewModel() {
 
     private var _emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(false)
     val emptyDatabase: LiveData<Boolean> get() = _emptyDatabase
@@ -32,7 +34,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
                     try {
                         (parent?.getChildAt(0) as TextView).setTextColor(
                             ContextCompat.getColor(
-                                application,
+                                context,
                                 R.color.red
                             )
                         )
@@ -44,7 +46,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
                     try {
                         (parent?.getChildAt(0) as TextView).setTextColor(
                             ContextCompat.getColor(
-                                application,
+                                context,
                                 R.color.yellow
                             )
                         )
@@ -56,7 +58,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
                     try {
                         (parent?.getChildAt(0) as TextView).setTextColor(
                             ContextCompat.getColor(
-                                application,
+                                context,
                                 R.color.green
                             )
                         )
@@ -76,13 +78,16 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     fun parseToPriority(priority: String): Priority {
         return when (priority) {
-            "High Priorities" -> {
+            "High Priorities",
+            "أولويات عالية" -> {
                 Priority.HIGH
             }
-            "Medium Priorities" -> {
+            "Medium Priorities",
+            "أولويات متوسطة" -> {
                 Priority.MEDIUM
             }
-            "Low Priorities" -> {
+            "Low Priorities",
+            "أولويات منخفضة" -> {
                 Priority.LOW
             }
             else -> {

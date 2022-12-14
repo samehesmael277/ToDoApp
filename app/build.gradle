@@ -2,14 +2,21 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 
+    id 'kotlin-kapt'
+
     // Save Args
     id 'androidx.navigation.safeargs.kotlin'
 
-    // RoomDatabase
-    id 'kotlin-kapt'
-
     // for Parcelable in entity model
     id 'kotlin-parcelize'
+
+    // for Dagger Hilt
+    id 'com.google.dagger.hilt.android'
+}
+
+// for Dagger Hilt
+kapt {
+    correctErrorTypes true
 }
 
 android {
@@ -84,5 +91,12 @@ dependencies {
 
     // recycler view animation
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+
+    // for splashscreen
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+
+    // for Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
 
 }

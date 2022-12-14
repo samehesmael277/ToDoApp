@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">ToDoApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">ToDo App</string>
     <string name="float_description">addBtn</string>
     <string name="no_data_image">noDataImage</string>
     <string name="to_do_list">ToDo List</string>
@@ -10,13 +8,31 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="search">Search</string>
+    <string name="search_hint">Search…</string>
     <string name="sort_by">Sort By</string>
+    <string name="priority_latest">Priority Latest</string>
     <string name="priority_high">Priority High</string>
     <string name="priority_low">Priority Low</string>
     <string name="delete_all">Delete All</string>
     <string name="add">Add</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="no_data">No Data!</string>
+
+    <string name="remove_everything">Remove everything!</string>
+    <string name="are_you_sure_to_remove_everything">Are you sure to remove everything?</string>
+    <string name="yes">Yes</string>
+    <string name="everything_removed_successfully">Everything removed successfully!</string>
+    <string name="no">No</string>
+    <string name="deleted">deleted</string>
+    <string name="undo">Undo</string>
+
+    <string name="added_successfully">Added Successfully</string>
+    <string name="please_fill_out_all_fields">Please fill out all fields!</string>
+    <string name="updated_successfully">updated successfully</string>
+    <string name="remove">Remove</string>
+    <string name="are_you_sure_to_remove">Are you sure to remove</string>
+    <string name="removed">removed</string>
 
     <string-array name="priorities">
         <item>High Priorities</item>
