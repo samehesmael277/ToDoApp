@@ -65,3 +65,7 @@ To Do App used to note tasks ToDo later and select priority for them and you can
 * [RecyclerView Animators](https://github.com/wasabeef/recyclerview-animators)
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Clean Architecture](https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started)
+
+
+## Download App For Use In Mobile (APK)
+* [Click Here To Download The App](https://www.mediafire.com/file/xvpdjvzh6c38ckd/todoapp.apk/file)
