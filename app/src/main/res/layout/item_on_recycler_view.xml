@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:id="@+id/constraint_layout_item_root">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    android:outlineSpotShadowColor="@color/black"
+    android:id="@+id/car_view_item_root"
+    tools:targetApi="p">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout_item_container"
@@ -18,16 +23,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view_priority_indicator"
+        <TextView
+            android:id="@+id/tv_view_priority_indicator"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/red"
-            app:cardCornerRadius="100dp"
+            android:backgroundTint="@color/red"
+            android:background="@drawable/priority_indicator_radius_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_item_title"
@@ -39,7 +44,8 @@
             android:textColor="@color/text_color_in_item_in_recyclerview"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/card_view_priority_indicator"
+            android:maxLength="70"
+            app:layout_constraintEnd_toStartOf="@+id/tv_view_priority_indicator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,4 +67,4 @@
             app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

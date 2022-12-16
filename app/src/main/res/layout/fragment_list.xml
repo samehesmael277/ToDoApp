@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/root_background_for_list_fragment"
+    android:background="@color/root_background_for_add_and_update_fragments"
     android:id="@+id/constraint_layout_container_list_of_to_do"
     tools:context=".fragments.list.ListFragment">
 

@@ -38,9 +38,13 @@
     <color name="lightGrayBackground">#F4F3F3</color>
     <color name="darkGray">#4B4B4B</color>
     <color name="red">#FF4646</color>
+    <color name="background_red">#80FF4646</color>
     <color name="yellow">#FFC114</color>
+    <color name="background_yellow">#80FFC114</color>
     <color name="green">#00C980</color>
+    <color name="background_green">#8000C980</color>
     <color name="black">#FF000000</color>
+    <color name="background_black">#33C5C5C5</color>
 
 
     <color name="background_for_splash">#FF000000</color>

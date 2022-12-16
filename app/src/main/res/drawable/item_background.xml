@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid android:color="@color/item_background_color_in_recyclerview"/>
+    <solid android:color="@color/background_stroke_color_of_ed_in_fragment"/>
     <stroke android:width="1dp" android:color="@color/item_stroke_color_in_recyclerview"/>
     <corners android:radius="16dp"/>
 
