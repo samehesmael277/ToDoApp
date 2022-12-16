@@ -2,6 +2,9 @@
 
 To Do App used to note tasks ToDo later and select priority for them and you can update or delete ToDo or sort ToDos by their priority.
 
+## Watch App Preview In Youtube
+* [Go To Video In Youtube](https://youtu.be/9j_5AwxOrDM)
+
 ## Screenshots
 
 ### Light Mode & Portrait Mode & English Language
