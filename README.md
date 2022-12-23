@@ -67,6 +67,7 @@ To Do App used to note tasks ToDo later and select priority for them and you can
 * [DiffUtil](https://developer.android.com/reference/androidx/recyclerview/widget/DiffUtil)
 * [RecyclerView Animators](https://github.com/wasabeef/recyclerview-animators)
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [Shared Preferences](https://developer.android.com/reference/android/content/SharedPreferences)
 * [Clean Architecture](https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started)
 
 
