@@ -2,6 +2,9 @@
 
 To Do App used to note tasks ToDo later and select priority for them and you can update or delete ToDo or sort ToDos by their priority.
 
+## Download App From Google Play
+* [Download](https://play.google.com/store/apps/details?id=com.sameh.todoapp)
+
 ## Watch App Preview In Youtube
 * [Go To Video In Youtube](https://youtu.be/9j_5AwxOrDM)
 
@@ -69,7 +72,3 @@ To Do App used to note tasks ToDo later and select priority for them and you can
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Shared Preferences](https://developer.android.com/reference/android/content/SharedPreferences)
 * [Clean Architecture](https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started)
-
-
-## Download App For Use In Mobile (APK)
-* [Click Here To Download The App](https://www.mediafire.com/file/xvpdjvzh6c38ckd/todoapp.apk/file)
